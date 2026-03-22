@@ -1,0 +1,39 @@
+{
+  "Navbar": {
+    "menu": "Menu",
+    "news": "News",
+    "booking": "Booking",
+    "about": "About us",
+    "contacts": "Contacts",
+    "login": "Login"
+  },
+  "Hero": {
+    "title": "DELICIOUS FOOD IS WAITING FOR YOU!",
+    "button": "View menu"
+  },
+  "Popular": {
+    "title": "Popular Dishes",
+    "dishName": "Chicken soup",
+    "dishDesc": "Spicy with garlic"
+  },
+  "Booking": {
+    "title": "Booking",
+    "subtitle": "Want to book a table?",
+    "hoursTitle": "Opening Hours",
+    "inputPhone": "Your phone number",
+    "inputPeople": "How many people?",
+    "inputDate": "Select date",
+    "inputTime": "Select time",
+    "inputPlace": "Select place",
+    "mapButton": "Choose seats on map",
+    "submit": "Book now"
+  },
+  "Days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "sunday": "Sunday"
+  }
+}

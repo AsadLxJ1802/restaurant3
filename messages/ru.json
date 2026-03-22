@@ -1,0 +1,39 @@
+{
+  "Navbar": {
+    "menu": "Меню",
+    "news": "Новости",
+    "booking": "Бронирование",
+    "about": "О нас",
+    "contacts": "Контакты",
+    "login": "Вход в аккаунт"
+  },
+  "Hero": {
+    "title": "ВКУСНАЯ ЕДА ЖДЕТ ТЕБЯ!",
+    "button": "Посмотреть меню"
+  },
+  "Popular": {
+    "title": "Популярные блюда",
+    "dishName": "Chicken soup",
+    "dishDesc": "Spicy with garlic"
+  },
+  "Booking": {
+    "title": "Бронирование",
+    "subtitle": "Хотите забронировать стол?",
+    "hoursTitle": "Часы работы",
+    "inputPhone": "Ваш номер",
+    "inputPeople": "На сколько человек?",
+    "inputDate": "Выберите дату",
+    "inputTime": "Выберите время",
+    "inputPlace": "Выберите место",
+    "mapButton": "Выбрать места на карте",
+    "submit": "Забронировать"
+  },
+  "Days": {
+    "monday": "Понедельник",
+    "tuesday": "Вторник",
+    "wednesday": "Среда",
+    "thursday": "Четверг",
+    "friday": "Пятница",
+    "sunday": "Воскресенье"
+  }
+}

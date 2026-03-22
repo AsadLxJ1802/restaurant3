@@ -1,0 +1,39 @@
+{
+  "Navbar": {
+    "menu": "Taomnoma",
+    "news": "Yangiliklar",
+    "booking": "Band qilish",
+    "about": "Biz haqimizda",
+    "contacts": "Kontaktlar",
+    "login": "Profilga kirish"
+  },
+  "Hero": {
+    "title": "MAZALI TAOMLAR SIZNI KUTMOQDA!",
+    "button": "Menyuni ko'rish"
+  },
+  "Popular": {
+    "title": "Ommabop taomlar",
+    "dishName": "Tovuqli sho'rva",
+    "dishDesc": "Achchiq va sarimsoqli"
+  },
+  "Booking": {
+    "title": "Band qilish",
+    "subtitle": "Stol band qilmoqchimisiz?",
+    "hoursTitle": "Ish vaqti",
+    "inputPhone": "Telefon raqamingiz",
+    "inputPeople": "Necha kishi uchun?",
+    "inputDate": "Sanani tanlang",
+    "inputTime": "Vaqtni tanlang",
+    "inputPlace": "Joyni tanlang",
+    "mapButton": "Xaritadan joy tanlash",
+    "submit": "Band qilish"
+  },
+  "Days": {
+    "monday": "Dushanba",
+    "tuesday": "Seshanba",
+    "wednesday": "Chorshanba",
+    "thursday": "Payshanba",
+    "friday": "Juma",
+    "sunday": "Yakshanba"
+  }
+}
