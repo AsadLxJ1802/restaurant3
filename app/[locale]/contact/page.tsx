@@ -3,6 +3,7 @@ import HeroHeader from "@/components/HeroHeader"
 import Input from "@/components/Input"
 import { Link } from "@/i18n/navigation"
 import { ArrowRight, BronAddressIcons, BronEmailIcon, BronTelIcons } from "@/public/icons/page"
+import Image from "next/image"
 
 
 
@@ -26,7 +27,8 @@ const List = [
               <Link className='flex items-center opacity-50' href="/">Главная<ArrowRight/></Link>
               <span className='opacity-100 cursor-pointer'>Contact</span>
             </div>
-            <div className="mb-19" >
+            <div className="mb-19 relative" >
+                <Image className='absolute top-50 -right-54' src={"/images/Menu-img1.png"} alt='img' width={258} height={258}/>
                 <h3 className='font-extrabold text-[48px] text-center text-[#000000] mb-20'>Контакты</h3>
                 <ul className='flex items-center justify-between w-225.5 mx-auto'>
                   {List.map(item => <li className='text-center' key={item.id}>
@@ -39,7 +41,8 @@ const List = [
                   </li>)}
                 </ul>
             </div>
-            <div>
+            <div className="relative">
+            <Image className='absolute top-50 -left-54' src={"/images/Menu-img2.png"} alt='img' width={228} height={228}/>
                 <h2 className="font-extrabold text-[48px] text-[#000000] text-center mb-15.25 ">Написать нам</h2>
                   <form className="w-201 mx-auto">
                       <Input extraStyle="mb-[20px] w-full  text-[12px] text-[#585858] border pl-3  text-[18px] text-[#585858]  border-[#585858]" title="Ваше имя" type="text"/>

@@ -3,11 +3,12 @@
 import HeroHeader from '@/components/HeroHeader';
 import Gallery from '@/components/NewsWrapper';
 import { ArrowRight, IconLike, IconShop } from '@/public/icons/page';
-import { getAll } from '@/service/page';
+import {  addCartItem, getAll } from '@/service/page';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button from '@/components/Button';
 import Image from 'next/image';
+import Loading from '@/public/images/page';
 
 type ProductType = {
   id: number | string;
@@ -27,6 +28,20 @@ const Menu = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const handleAddToCart = async (productId: number) => {
+      const res = await addCartItem({
+        userId: 1,
+        sessionId: "1",
+        productId,
+        quantity: 1
+      });
+  
+      const data = await res.json();
+  };
+
+
 
   useEffect(() => {
     getAll("categories")
@@ -36,40 +51,59 @@ const Menu = () => {
         setCategories(categoryList);
         setSelectedCategory(categoryList[0] || null);
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
 
-  if (!categories.length) {
-    return <div className="text-center mt-10">Loading...</div>;
+  if (loading) {
+    return (
+      <div className="mx-auto text-center mb-30 py-50 w-325 rounded-[28px] bg-white/50">
+        <Loading/>
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   return (
     <>
       <section className='hero-bg2 mb-13.75'>
         <div className='containers relative p-15 hero-bg rounded-[50px]'>
-        <Image className='absolute top-140 -right-35' src={"/images/Menu-img1.png"} alt='img' width={258} height={258}/>
-        <Image className='absolute top-210 -left-43' src={"/images/Menu-img2.png"} alt='img' width={258} height={258}/>
-        <Image className='absolute top-215 left-130' src={"/images/Menu-img3.png"} alt='img' width={258} height={258}/>
+          <Image className='absolute top-140 -right-35' src={"/images/Menu-img1.png"} alt='img' width={258} height={258}/>
+          <Image className='absolute top-210 -left-43' src={"/images/Menu-img2.png"} alt='img' width={258} height={258}/>
+          <Image className='absolute top-215 left-130' src={"/images/Menu-img3.png"} alt='img' width={258} height={258}/>
 
           <HeroHeader extraClass='mb-[107px]'/>
           <div className='flex items-center mb-7.5'>
             <Link className='flex items-center opacity-50' href="/">Главная<ArrowRight/></Link>
             <span className='opacity-100 cursor-pointer'>Меню</span>
           </div>
-              <h2 className='text-center mb-12.5 font-extrabold text-[48px] text-[#000000] '>Меню</h2>
+
+          <h2 className='text-center mb-12.5 font-extrabold text-[48px] text-[#000000]'>Меню</h2>
+
           <div className='justify-center flex mb-40'>
             <div className="flex gap-4 bg-[#FFFFFF66] rounded-[27px] py-1.5 px-3">
-              {categories.map((item, index) => ( <Button key={index} type="button" title={item.name} extraStyle={`rounded-[27px] border-transparent px-[8px] ${activeIndex === index ? "bg-[#ffffff] text-black" : "text-black"}`} onClick={() => {   setActiveIndex(index);   setSelectedCategory(item); }} />
+              {categories.map((item, index) => (
+                <Button
+                  key={item.id}
+                  type="button"
+                  title={item.name}
+                  extraStyle={`rounded-[27px] border-transparent px-[8px] ${activeIndex === index ? "bg-[#ffffff] text-black" : "text-black"}`}
+                  onClick={() => {
+                    setActiveIndex(index);
+                    setSelectedCategory(item);
+                  }}
+                />
               ))}
             </div>
           </div>
+
           {selectedCategory && selectedCategory.products.length === 0 ? (
             <div className="flex justify-center mb-20 text-[18px] text-gray-600">
               <Image src={"/images/No-Products.png"} alt='img' width={200} height={200}/>
             </div>
           ) : (
             <div className="grid grid-cols-4 gap-10 mb-10">
-              {selectedCategory?.products?.map((p: ProductType) => (
+              {selectedCategory?.products?.map((p: ProductType , index) => (
                 <div key={p.id}>
                   <div className='bg-[#FFFFFF66] px-5 pb-4.75 pt-40 rounded-[38px] mb-20'>
                     <div className='relative'>
@@ -87,15 +121,20 @@ const Menu = () => {
                       </div>
                       <div className='flex items-end justify-between'>
                         <strong>{p.price}$</strong>
-                        <Button type='button' icon={<IconShop/>} iconPost='left' extraStyle='bg-black p-[13px] rounded-[5px] text-[#ffffff]' />
+                        <Button
+                          onClick={() => handleAddToCart(Number(p.id))}
+                          type='button'
+                          icon={<IconShop/>}
+                          iconPost='left'
+                          extraStyle='bg-black p-[13px] rounded-[5px] text-[#ffffff]'
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-          )}          
-
+          )}
         </div>
       </section>
 

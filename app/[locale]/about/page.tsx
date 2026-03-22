@@ -25,18 +25,23 @@ const About = () => {
 
   return (
     <section className='hero-bg2 pb-17.5  '>
-        <div className='containers  p-15 hero-bg rounded-[50px] '>
+        <div className='containers  relative p-15 hero-bg rounded-[50px] '>
+                  <Image className='absolute top-134 -right-34' src={"/images/Menu-img1.png"} alt='img' width={258} height={258}/>
+                  <Image className='absolute top-220 -left-40' src={"/images/Menu-img2.png"} alt='img' width={228} height={228}/>
+                  <Image className='absolute top-220 -left-40' src={"/images/Menu-img2.png"} alt='img' width={228} height={228}/>
             <HeroHeader extraClass='mb-[114px]'/> 
             <div className='flex items-center mb-7.5 '>
               <Link className='flex items-center opacity-50' href="/">Главная<ArrowRight/></Link>
               <span className='opacity-100 cursor-pointer'>О нас</span>
             </div>
-            <h2 className="font-extrabold text-[48px] text-[#000000] mb-10.5">О нас</h2>
+            <h2 className="font-extrabold text-[48px] text-[#000000] text-center mb-10.5">О нас</h2>
             <div className="mb-23.75">
                 <p className="font-medium text-[20px] text-[#000000] mb-7">С 1995 года наша миссия в ресторане — питать и вдохновлять каждого члена команды, гостя и сообщество, которому мы служим. Спустя все эти годы эти основные ценности остаются в основе всего, что мы делаем. От нашего меню до наших услуг и способов ведения бизнеса — наш свежий, неожиданный и человечный взгляд отличает нас. Мы называем это Необыкновенной Добротой. И это во всем, что мы делаем.</p>
                 <p className="font-medium text-[20px] text-[#000000] ">Имея более 450 ресторанов в 26 штатах и ​​более 8000 членов команды, мы два года подряд были названы Forbes одним из лучших работодателей Америки в области разнообразия. Денверский деловой журнал признал нас одним из лучших мест для работы. Мы считаем, что эти успехи основаны на нашей уникальной и заботливой культуре, благодаря которой каждый, кто входит в наши двери, чувствует себя желанным гостем и оцененным по достоинству.</p>
             </div>
-            <div className="flex items-center justify-between mb-26.25">
+            <div className="flex items-center relative justify-between mb-26.25">
+                  <Image className='absolute top-239 -left-50' src={"/images/New-img4.png"} alt='img' width={228} height={228}/>
+                  <Image className='absolute top-250 -right-56' src={"/images/New-img3.png"} alt='img' width={228} height={228}/>
                 <div className="w-141">
                     <h3 className="font-extrabold text-[40px] text-[#000000] mb-11">Наша еда</h3>
                     <p className="text-[20px] font-medium text-[#000000] mb-7">Наша страсть — создавать исключительные впечатления от еды по отличной цене. От традиционных и современных блюд до наших собственных кулинарных творений, таких как фаршированные тортеллони премиум-класса, наши свежеприготовленные рецепты отличаются индивидуальностью, креативностью и ярким вкусом кухонь всего мира.</p>

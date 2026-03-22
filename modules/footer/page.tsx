@@ -8,7 +8,7 @@ const Footer = () => {
   const isAuthPage = path.includes("sign-in") || path.includes("sign-up");
   
   return (
-    <footer className={`pt-3 pb-11.25 footer-bg py-21.25 ${isAuthPage? "hidden" : ""}`}>
+    <footer className={` pb-11.25 footer-bg py-21.25 ${isAuthPage? "hidden" : ""}`}>
           <div className="containers">
               <ul className="flex items-start justify-between">
                   <li>

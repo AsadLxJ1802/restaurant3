@@ -13,6 +13,8 @@ const Header = () => {
   const isAuthPage = path.includes("sign-in") || path.includes("sign-up");
   const [user,setUser] = useState<string | null>(null)
 
+ 
+
   useEffect(() => {
     const cookieUser = getCookie("user")
     if(cookieUser){
