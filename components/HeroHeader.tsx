@@ -24,10 +24,10 @@ const HeroHeader = ({ extraClass }: { extraClass?: string }) => {
       const data = await res.json();
       const items = data.data?.items || [];
 
-      const totalCount = items.reduce(
-        (sum: number, item: any) => sum + item.quantity,0);
+      const totalProducts = items.length;
 
-      setCartCount(totalCount);
+      setCartCount(totalProducts);
+
   };
 
   useEffect(() => {

@@ -29,6 +29,7 @@ const Menu = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  
 
   const handleAddToCart = async (productId: number) => {
       const res = await addCartItem({
@@ -72,7 +73,7 @@ const Menu = () => {
           <Image className='absolute top-210 -left-43' src={"/images/Menu-img2.png"} alt='img' width={258} height={258}/>
           <Image className='absolute top-215 left-130' src={"/images/Menu-img3.png"} alt='img' width={258} height={258}/>
 
-          <HeroHeader extraClass='mb-[107px]'/>
+          <HeroHeader extraClass='mb-[107px]' />
           <div className='flex items-center mb-7.5'>
             <Link className='flex items-center opacity-50' href="/">Главная<ArrowRight/></Link>
             <span className='opacity-100 cursor-pointer'>Меню</span>
