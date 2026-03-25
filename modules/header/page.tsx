@@ -6,18 +6,29 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { IconEmail,  IconTel, IconUser, SingOut } from "@/public/icons/page"
 import { getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
+import { getCart } from "@/service/page";
 
 
 const Header = () => {
   const path = usePathname();
   const isAuthPage = path.includes("sign-in") || path.includes("sign-up");
   const [user,setUser] = useState<string | null>(null)
+  const [cartCount,setCartCount] = useState(0)
 
  
+  useEffect(()=>{
+
+    getCart(1)
+    .then(res=>res.json())
+    .then(data=>{
+      setCartCount(data.data.itemCount)
+    })
+  
+  },[])
 
   useEffect(() => {
     const cookieUser = getCookie("user")
-    if(cookieUser){
+    if(cookieUser){ 
       setUser(cookieUser.toString())
     }
   },[])
@@ -35,7 +46,7 @@ const Header = () => {
                   info@bmgsoft.com
                  </a>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gapdecrease-1">
                 <div className="relative group flex items-center gap-3.5 cursor-pointer">
                   <LanguageSelect/>
                 </div> 

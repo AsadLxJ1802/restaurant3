@@ -27,6 +27,15 @@ export const IconArrowbottom = () => (
         <path d="M4.24268 5.62118L0 1.40533L1.41422 0L4.24268 2.81062L7.07108 0L8.48528 1.40533L4.24268 5.62118Z" fill="black"/>
     </svg>
 )
+
+export const IconArrowLefth = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"   strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 12l14 0" />
+        <path d="M5 12l6 6" />
+        <path d="M5 12l6 -6" />
+</svg>
+
+)
 export const IconLike = () => (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_201_2159)">
@@ -355,3 +364,12 @@ export const FranceFlag = () => (
       <rect fill="#CE1126" x="2" width="1" height="2"/>
     </svg>
     ) 
+
+
+
+    export const RetingIcon = () => (
+        <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.79 0L17.0455 10.0193L27.5804 10.0193L19.0575 16.2115L22.3129 26.2307L13.79 20.0385L5.26715 26.2307L8.52261 16.2115L-0.00028038 10.0193L10.5346 10.0193L13.79 0Z" fill="#C1C0C0"/>
+    </svg>
+
+    )

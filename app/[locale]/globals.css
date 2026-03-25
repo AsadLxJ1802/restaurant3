@@ -32,7 +32,7 @@ body{
 
 /* hero */
 .hero-bg{
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, #ffffff66 100%);
 }
 
 /* Popular */

@@ -27,13 +27,14 @@ const Login = () => {
 
     SignIn(data)
       .then((res) => res.json())
-      .then((data) => {
+      .then((data) => {     
         setCookie("token", data.data.accessToken);
         setCookie("user", `${data.data.user.firstName} ${data.data.user.lastName}`);
         setTimeout(() => {
           router.push("/");
         }, 5000);
       })
+      
       .catch(() => {
         alert("password yoki username xato?");
         setIsLoading(false);
