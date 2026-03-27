@@ -20,7 +20,7 @@ const HeroHeader = ({ extraClass }: { extraClass?: string }) => {
   ];
 
   const fetchCart = async () => {
-      const res = await getCart(1, "1");
+      const res = await getCart(1,);
       const data = await res.json();
       const items = data.data?.items || [];
 

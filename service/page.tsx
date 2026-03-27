@@ -1,3 +1,5 @@
+import { getCookie } from "cookies-next";
+
 const BASE_URL = process.env.NEXT_PUBLIC_API;
 export const SignIn =  (body:{username:string,password:string }) => {
   return  fetch(`${BASE_URL}auth/signin`,{
@@ -24,12 +26,28 @@ export const SignUp = (body: { firstName: string; lastName: string; username: st
 
 
 export const getAll = (URL: string) => {
+  const token = getCookie("token"); 
+  console.log(token);
+  
   return fetch(`${BASE_URL}${URL}`, {
     method: "GET",
     headers: {
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
   });
+};
+
+export const deleteProduct = (id: number | string) => {
+  const token = getCookie("token");
+
+  return fetch(`${BASE_URL}products/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  }).then(res => res.json());
 };
 
 // Get Cart
@@ -42,7 +60,6 @@ export const getCart = (userId:number) => {
   });
 };
 
-// ADD CART ITEM
 export const addCartItem = (body:{userId:number,productId:number,quantity:number}) => {
   return fetch(`${BASE_URL}cart/items`,{
     method:"POST",
@@ -53,14 +70,12 @@ export const addCartItem = (body:{userId:number,productId:number,quantity:number
   })
 }
 
-// DELETE CART ITEM
 export const removeCartItem = (itemId:number) => {
   return fetch(`${BASE_URL}cart/items/${itemId}`,{
     method:"DELETE"
   })
 }
 
-// UPDATE QUANTITY
 export const updateCartItem = (itemId:number, quantity:number) => {
   return fetch(`${BASE_URL}cart/items/${itemId}`,{
     method:"PATCH",
@@ -71,7 +86,6 @@ export const updateCartItem = (itemId:number, quantity:number) => {
   })
 }
 
-// CHECKOUT
 export const checkoutCart = (body:any) => {
   return fetch(`${BASE_URL}cart/checkout`,{
     method:"POST",
@@ -98,7 +112,7 @@ export const sendContact = (body: {name:string; email:string, phone:string, mess
 
 // Bron
 
-export const orderBron = (body: {customerName:string, email:string, guestCount:number , reservationDate:string, reservationTime:string, tableId:number ,note:string }) =>{
+export const cerateBron = (body: {email:string, guestCount:number, reservationDate:string , reservationTime:string, tableId:number }) =>{
   return fetch(`${BASE_URL}reservations/create`, {
     method:"POST",
     headers: {
@@ -107,3 +121,6 @@ export const orderBron = (body: {customerName:string, email:string, guestCount:n
     body: JSON.stringify(body)
   })
 }
+
+
+

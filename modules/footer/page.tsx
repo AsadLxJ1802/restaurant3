@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const Footer = () => {
   const path = usePathname();
-  const isAuthPage = path.includes("sign-in") || path.includes("sign-up");
+  const isAuthPage = path.includes("sign-in") || path.includes("sign-up") ||  path.includes("admin");
   
   return (
     <footer className={` pb-11.25 footer-bg py-21.25 ${isAuthPage? "hidden" : ""}`}>

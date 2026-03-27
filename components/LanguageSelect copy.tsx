@@ -6,7 +6,7 @@ import { useRouter, usePathname } from "@/i18n/navigation"
 
 type Lang = "ru" | "uz" | "en"
 
-export default function LanguageSelect() {
+export default function LanguageSelect({extraStyle}:{extraStyle?:string}) {
   const locale = useLocale() as Lang  
   const router = useRouter()
   const pathname = usePathname()
@@ -36,9 +36,9 @@ export default function LanguageSelect() {
   const current = langs.find(l => l.code === locale)
 
   return (
-    <div className="relative group w-35 text-sm font-medium z-50">
+    <div className={`relative group w-35  text-sm font-medium z-50 ${extraStyle}` }>
       
-      <div className="flex items-center justify-between  px-4 py-2 rounded-lg border border-transparent hover:border-[#ffad2d] transition cursor-pointer">
+      <div className="flex items-center justify-between  px-4 py-2 rounded-lg border border-transparent  transition cursor-pointer">
         <div className="flex items-center gap-3">
           {current?.icon}
           <span>{current?.label}</span>

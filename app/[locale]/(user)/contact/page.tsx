@@ -37,7 +37,6 @@ function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     alert("Yuborilmadi")
   })
 
-  return console.log(data);
   
 }  
   return (

@@ -63,6 +63,12 @@ body{
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 100%);
 }
 
+.admin-bg{
+  background-image: url("/images/Admin-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
