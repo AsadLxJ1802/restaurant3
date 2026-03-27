@@ -27,7 +27,6 @@ export const SignUp = (body: { firstName: string; lastName: string; username: st
 
 export const getAll = (URL: string) => {
   const token = getCookie("token"); 
-  console.log(token);
   
   return fetch(`${BASE_URL}${URL}`, {
     method: "GET",
@@ -47,8 +46,19 @@ export const deleteProduct = (id: number | string) => {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-  }).then(res => res.json());
+  })
 };
+
+export const createMenu = (body:{image:string, name:string , description:string, price:number}) => {
+  const token = getCookie("token")
+  return fetch(`${BASE_URL}products` , {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body:JSON.stringify(body)
+  })
+}
 
 // Get Cart
 export const getCart = (userId:number) => {
@@ -72,7 +82,7 @@ export const addCartItem = (body:{userId:number,productId:number,quantity:number
 
 export const removeCartItem = (itemId:number) => {
   return fetch(`${BASE_URL}cart/items/${itemId}`,{
-    method:"DELETE"
+    method:"DELEsendContactTE"
   })
 }
 

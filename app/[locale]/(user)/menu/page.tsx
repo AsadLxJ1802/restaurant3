@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import Loading from '@/public/images/page';
-import { Link, useRouter } from '@/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 
 type ProductType = {
   id: number | string;
@@ -29,7 +29,6 @@ const Menu = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<CategoryType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter()
   
 
   const handleAddToCart = async (productId:number) => {
@@ -83,11 +82,7 @@ const Menu = () => {
           <div className='justify-center flex mb-40'>
             <div className="flex gap-4 bg-[#FFFFFF66] rounded-[27px] py-1.5 px-3">
               {categories.map((item, index) => (
-                <Button
-                  key={item.id}
-                  type="button"
-                  title={item.name}
-                  extraStyle={`rounded-[27px] border-transparent px-[8px] ${activeIndex === index ? "bg-[#ffffff] text-black" : "text-black"}`}
+                <Button key={item.id} type="button" title={item.name} extraStyle={`rounded-[27px] border-transparent px-[8px] ${activeIndex === index ? "bg-[#ffffff] text-black" : "text-black"}`}
                   onClick={() => {
                     setActiveIndex(index);
                     setSelectedCategory(item);

@@ -54,52 +54,23 @@ const Login = () => {
               <BookingIcon />
             </div>
           </div>
-
-          <h2
-            className={`mt-8 mb-8 font-bold text-[32px] text-[#000000] ${
-              isLoading ? "text-center" : "text-start"
-            }`}
-          >
-            Вход в аккаунт
-          </h2>
-
+          <h2 className={`mt-8 mb-8 font-bold text-[32px] text-[#000000] ${ isLoading ? "text-center" : "text-start" }`}>Вход в аккаунт</h2>
           {isLoading ? (
             <Loading />
           ) : (
-            <form
-              autoComplete="off"
-              onSubmit={hendleSubmit}
-              className="flex items-center flex-col"
-            >
-              <Input
-                name="username"
-                type="text"
-                title="Ваше имя пользователя"
-                extraStyle="text-[16px] pl-3 text-[#585858] bg-[#d2d1d1] mb-[30px] border-black"
-              />
+            <form autoComplete="off" onSubmit={hendleSubmit} className="flex items-center flex-col">
+              <Input name="username" type="text" title="Ваше имя пользователя" extraStyle="text-[16px] pl-3 text-[#585858] bg-[#d2d1d1] mb-[30px] border-black"/>
 
               <label className="w-full">
-                <Input
-                  name="password"
-                  type="password"
-                  title="Password"
-                  extraStyle="text-[16px] pl-3 text-[#585858] mb-[8px] border-black"
-                />
+                <Input name="password" type="password" title="Password" extraStyle="text-[16px] pl-3 text-[#585858] mb-[8px] border-black"/>
                 <Link href={"#"} className="text-[12px] text-[#000000]">
                   Забыли пароль?
                 </Link>
               </label>
-
-              <Button
-                type="submit"
-                title="Вход в аккаунт"
-                extraStyle="mt-8 bg-black mb-2 py-[25px] px-[25px] text-[18px] text-[#FFFFFF] flex items-center gap-2 rounded-[13px]"
-              />
+              <Button type="submit" title="Вход в аккаунт" extraStyle="mt-8 bg-black mb-2 py-[25px] px-[25px] text-[18px] text-[#FFFFFF] flex items-center gap-2 rounded-[13px]"/>
 
               <Link className="flex justify-center" href={"/sign-up"}>
-                <span className="font-semibold text-[#06004C] text-[12px]">
-                  Еще нет учетной записи?
-                </span>
+                <span className="font-semibold text-[#06004C] text-[12px]">Еще нет учетной записи?</span>
               </Link>
             </form>
           )}

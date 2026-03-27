@@ -27,8 +27,9 @@ const Contact = () => {
   return (
     <div className="p-4 admin-bg min-h-screen">
       <h1 className="text-2xl text-white font-bold mb-4">Contacts</h1>
-      <table className="min-w-full border border-gray-300">
-        <thead className="bg-gray-100">
+      <div className="overflow-x-auto rounded-xl duration-300 hover:shadow-[0_0_10px_3px] shadow-blue-200">
+      <table className="w-full admin-bg text-white  duration-300 rounded-2xl backdrop-blur-md">
+        <thead className="bg-gray-800  ">
           <tr>
             <th className="border px-4 py-2">ID</th>
             <th className="border px-4 py-2">Name</th>
@@ -39,7 +40,7 @@ const Contact = () => {
         </thead>
         <tbody>
             {contact.map((item) => (
-              <tr key={item.id}>
+              <tr key={item.id}className="border-b text-white/70 hover:bg-gray-400 duration-300 transition">
                 <td className="border px-4 py-2">{item.id}</td>
                 <td className="border px-4 py-2">{item.name}</td>
                 <td className="border px-4 py-2">{item.email}</td>
@@ -50,6 +51,7 @@ const Contact = () => {
           }
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

@@ -39,8 +39,10 @@ const Reservation = () => {
     <div className="min-h-screen admin-bg p-5">
       <h1 className="font-extrabold text-[35px] mb-10 text-white">Reservations</h1>
       
-      <table className="min-w-full bg-white rounded shadow overflow-hidden">
-        <thead className="bg-gray-200 text-gray-700">
+      <div className="overflow-x-auto rounded-xl duration-300 hover:shadow-[0_0_10px_3px] shadow-blue-200">
+
+      <table className="w-full admin-bg text-white  duration-300 rounded-2xl backdrop-blur-md">
+        <thead className="bg-gray-800">
           <tr>
             <th className="py-2 px-4">ID</th>
             <th className="py-2 px-4">Email</th>
@@ -51,24 +53,20 @@ const Reservation = () => {
           </tr>
         </thead>
         <tbody>
-          {reservations.map(reservation => (
-            <tr key={reservation.id} className="text-center border-b">
+          {[...reservations].reverse().map(reservation => (
+            <tr key={reservation.id} className="border-b text-white/70 hover:bg-gray-400 duration-300 transition">
               <td className="py-2 px-4">{reservation.id}</td>
               <td className="py-2 px-4">{reservation.email}</td>
               <td className="py-2 px-4">{reservation.guestCount}</td>
               <td className="py-2 px-4">{reservation.reservationDate}</td>
               <td className="py-2 px-4">{reservation.reservationTime}</td>
               <td className="py-2 px-4">
-                {reservation.table.map(t => (
-                  <div key={t.id}>
-                    {t.tableNumber} ({t.location})
-                  </div>
-                ))}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

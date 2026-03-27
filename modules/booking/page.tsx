@@ -4,14 +4,14 @@ import Button from "@/components/Button"
 import Input from "@/components/Input"
 import { BookingIcon } from "@/public/icons/page"
 import { cerateBron } from "@/service/page"
-import { useState } from "react"
+import { SubmitEvent, useState } from "react"
 
 const Booking = () => {
   const [date, setDate] = useState("text")
   const [time, setTime] = useState("text")
 
   
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault()
   
     const form = e.currentTarget
@@ -48,61 +48,22 @@ const Booking = () => {
               <BookingIcon />
             </div>
           </div>
-
           <h2 className="text-[32px] font-bold text-[#000000] mb-6.25">
             Забронировать стол
           </h2>
-
           <form onSubmit={handleSubmit}>
-            <Input
-              name="email"
-              extraStyle="mb-[20px] text-[12px] text-[#585858]"
-              title="Ваш номер"
-              type="text"
-            />
-
-            <Input
-              name="guestCount"
-              extraStyle="mb-[20px] text-[12px] text-[#585858]"
-              title="На сколько человек?"
-            />
-
+            <Input name="email" extraStyle="mb-[20px] text-[12px] text-[#585858]" title="Ваш номер" type="text"/>
+            <Input name="guestCount" extraStyle="mb-[20px] text-[12px] text-[#585858]" title="На сколько человек?"/>
             <div className="flex flex-col">
-              <Input
-                name="reservationDate"
-                extraStyle="mb-[20px] text-[12px] text-[#585858]"
-                title="Выберите дату"
-                type={date}
-                onFocus={() => setDate("date")}
-                onBlur={() => setDate("text")}
-              />
-
-              <Input
-                name="reservationTime"
-                extraStyle="mb-[20px] text-[12px] text-[#585858]"
-                title="Выберите время"
-                type={time}
-                onFocus={() => setTime("time")}
-                onBlur={() => setTime("text")}
-              />
+              <Input name="reservationDate" extraStyle="mb-[20px] text-[12px] text-[#585858]" title="Выберите дату" type={date} onFocus={() => setDate("date")} onBlur={() => setDate("text")} />
+              <Input name="reservationTime" extraStyle="mb-[20px] text-[12px] text-[#585858]" title="Выберите время" type={time} onFocus={() => setTime("time")} onBlur={() => setTime("text")}/>
             </div>
-
-            <label>
-              <Input
-                name="tableId"
-                extraStyle="mb-[8px] text-[12px] text-[#585858]"
-                title="Выберите место"
-              />
+            <label> <Input   name="tableId"   extraStyle="mb-[8px] text-[12px] text-[#585858]"   title="Выберите место" />
               <a className="text-[13px] text-[#06004C]" href="#">
                 Выбрать места на карте
               </a>
             </label>
-
-            <Button
-              type="submit"
-              title="Забронировать"
-              extraStyle="py-[18px] mt-10.25 px-[24px] rounded-[13px] bg-black text-white"
-            />
+            <Button type="submit" title="Забронировать" extraStyle="py-[18px] mt-10.25 px-[24px] rounded-[13px] bg-black text-white"/>
           </form>
         </div>
       </div>
